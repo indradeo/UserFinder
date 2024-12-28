@@ -2,6 +2,7 @@ package org.dev.UserFinder.restcontroller;
 
 import jakarta.validation.Valid;
 import org.dev.UserFinder.entity.User;
+import org.dev.UserFinder.exception.UserNotFoundException;
 import org.dev.UserFinder.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ public class UserController {
 
     @GetMapping("/login")
     public String login() {
+
         return "This is Login Page";
     }
 
@@ -33,5 +35,25 @@ public class UserController {
     public List<User> searchUser(@RequestBody User user){
 
         return userService.searchUser(user);
+    }
+
+    @PostMapping("/update")
+    public User updateUser(@Valid @RequestBody User user) {
+        return userService.updateUser(user);
+    }
+
+    @GetMapping("/findById/{id}")
+    public User findUserById(@PathVariable Integer id){
+        return userService.findById(id);
+    }
+
+    @GetMapping("deleteById/{id}")
+    public String deleteById(@PathVariable  Integer id){
+        return userService.deleteById(id);
+    }
+
+    @GetMapping("/findAll")
+    public List<User> findAll(){
+        return userService.findAll();
     }
 }
