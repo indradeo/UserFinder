@@ -13,13 +13,16 @@ public class User {
     private Integer id;
 
     @NotBlank(message = "* username is mandatory")
+    @Column(unique = true)
     private String username;
     @NotBlank(message = "* first name is mandatory")
     private String firstName;
     @NotBlank(message = "* last name is mandatory")
     private String lastName;
     @NotBlank(message = "* email is mandatory")
+    @Column(unique = true)
     private String email;
     @NotBlank(message = "* password is mandatory")
     private String password;
+
 }

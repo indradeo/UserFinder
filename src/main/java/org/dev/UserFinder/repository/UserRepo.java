@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserRepo extends JpaRepository<User, Integer> {
 
@@ -17,4 +18,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
             "(:username IS NULL OR LOWER(u.username) LIKE LOWER(CONCAT('%', :username, '%')))")
     List<User> search(@Param("id") Integer id, @Param("name")String name, @Param("lname")String lname, @Param("email") String email, @Param("username") String username);
 
+    @Query("Select u from User u where u.username=:username")
+    Optional<User> findUserByName(@Param("username") String username);
 }

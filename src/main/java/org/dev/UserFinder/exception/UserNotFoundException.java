@@ -1,6 +1,5 @@
 package org.dev.UserFinder.exception;
 
-import lombok.Data;
 import lombok.Getter;
 
 @Getter
