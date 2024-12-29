@@ -1,6 +1,5 @@
 package org.dev.UserFinder.exception;
 
-import org.dev.UserFinder.entity.User;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -27,6 +26,11 @@ public class AppExceptionHandler {
 
     @ExceptionHandler(value = UserNotFoundException.class)
     public String userHandler(UserNotFoundException e){
+        return e.getMessage();
+    }
+
+    @ExceptionHandler(value = NoUniqueFoundException.class)
+    public String noUniqueHandler(NoUniqueFoundException e){
         return e.getMessage();
     }
 }

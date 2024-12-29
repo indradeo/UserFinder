@@ -2,7 +2,6 @@ package org.dev.UserFinder.restcontroller;
 
 import jakarta.validation.Valid;
 import org.dev.UserFinder.entity.User;
-import org.dev.UserFinder.exception.UserNotFoundException;
 import org.dev.UserFinder.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
